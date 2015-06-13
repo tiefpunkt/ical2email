@@ -1,0 +1,13 @@
+MAIL_FROM = "calendar@example.com"
+MAIL_TO   = "announce@example.com"
+
+ICAL_URL = "https://www.google.com/calendar/ical/lbd0aa2rlahecp7juvp35hd0k0%40group.calendar.google.com/public/basic.ics"
+ICAL_TZ  = "Europe/Berlin"
+
+DAYS_AHEAD = 2
+
+SMTP_HOST = "smtp.example.com"
+SMTP_PORT = 25
+SMTP_USER = "bernd@example.com"
+SMTP_PASS = "xxxxxxxxx"
+
