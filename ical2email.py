@@ -26,7 +26,7 @@ def send_mail(event, dtstart):
 		body = body + "\nURL: " + url
 
 	msg = Message()
-	msg.set_payload(body)
+	msg.set_payload(body, "utf-8")
 	msg["Subject"] = subject
 	msg["From"] = config.MAIL_FROM
 	msg["To"] = config.MAIL_TO
