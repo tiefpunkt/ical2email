@@ -2,3 +2,5 @@
 
 config.py
 venv
+env
+env.*
