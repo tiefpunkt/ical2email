@@ -9,14 +9,14 @@ from dateutil import rrule
 import config
 
 def send_mail(event, dtstart):
-    summary = event.get('summary').to_ical()
-    description = event.get('description').to_ical().decode('string_escape').replace('\,', ',').replace('\;',';')
+    summary = event.get('summary').to_ical().decode('unicode_escape')
+    description = event.get('description').to_ical().decode('unicode_escape').replace('\,', ',').replace('\;',';')
     starttime = dtstart.strftime("%a, %B %d %Y, %H:%M")
 
     body = "Time & Date: " + starttime + "\n"
 
     if event.get('location'):
-        body += "Location: " + event.get('location').to_ical().decode('string_escape').replace('\,', ',').replace('\;',';') + "\n"
+        body += "Location: " + event.get('location').to_ical().decode('unicode_escape').replace('\,', ',').replace('\;',';') + "\n"
 
     body += "\n" + description
     subject = "[Event] " + summary + " (" + starttime + ")"
@@ -106,5 +106,4 @@ def check_for_modified_reoccurences(old_items, new_item):
 #events = reduce(check_for_modified_reoccurences, events, [])
 
 for event in events:
-    print(event[0], event[1])
-    #send_mail(event[0], event[1])
+    send_mail(event[0], event[1])
